@@ -18,6 +18,8 @@ export const EditScreenInfo = ({ path }: { path: string }) => {
   );
 };
 
+//added comment
+
 const styles = {
   codeHighlightContainer: `rounded-md px-1`,
   getStartedContainer: `items-center mx-12`,
