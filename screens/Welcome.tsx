@@ -3,7 +3,16 @@ import React from 'react';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import colors from '../theme/colors';
 
+import { useNavigation } from '@react-navigation/native';
+
+// Define your navigation param list
+type RootStackParamList = {
+  SignUp: undefined;
+  Login: undefined;
+};
+
 export default function Welcome() {
+  const navigation = useNavigation<import('@react-navigation/native').NavigationProp<RootStackParamList>>();
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
       <View style={styles.innerView}>
@@ -17,9 +26,15 @@ export default function Welcome() {
       </View>
       <View style={styles.containerBtn}>
         {/* Placeholder for buttons or additional content */}
-        <TouchableOpacity style={styles.btn}>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={styles.btn}>
           <Text style={styles.btnText}>Sign Up</Text>
         </TouchableOpacity>
+        <View style={{ marginTop: 16, flexDirection: 'row', justifyContent: 'center' }}>
+          <Text style={{ color: '#fff', fontSize: 16 }}>Already have an account? </Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={{ color: '#388e3c', fontSize: 16, fontWeight: 'bold' }}>Login</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
