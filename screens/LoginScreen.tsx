@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, StyleSheet} from 'react-native'
+import { View, Text, TouchableOpacity, Image, StyleSheet, TextInput} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import colors from 'theme/colors'
@@ -41,7 +41,7 @@ export default function LoginScreen() {
         elevation: 4, // for Android shadow
       }}>
         <View style={styles.formContainer}>
-          {/* Add your TextInputs and form elements here */}
+          
         </View>
       </View>
     </View>
@@ -50,9 +50,9 @@ export default function LoginScreen() {
 
 const styles = StyleSheet.create({
   formContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 0.9,
+    justifyContent: 'start',
+    alignItems: 'start',
     padding: 24,
     backgroundColor: '#f4f4f4',
     borderRadius: 16,
