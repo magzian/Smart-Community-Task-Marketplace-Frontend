@@ -7,6 +7,8 @@ import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 type RootStackParamList = {
   Home: undefined;
+  Login: undefined;
+  SignUp: undefined;
 };
 
 
@@ -41,7 +43,50 @@ export default function LoginScreen() {
         elevation: 4, // for Android shadow
       }}>
         <View style={styles.formContainer}>
-          
+            <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 3 }}>Email Adress</Text>
+            <TextInput 
+              style={{
+                width: '100%',
+                height: 50,
+                borderColor: colors.primary,
+                borderWidth: 1,
+                borderRadius: 10,
+                paddingHorizontal: 16,
+                marginTop: 10,
+              }}
+              placeholder="johndoe@gmail.com"
+            />
+            <Text style={{ fontSize: 16, fontWeight: 'bold', marginTop: 20, marginBottom: 3 }}>Password</Text>
+            <TextInput 
+              style={{
+                width: '100%',
+                height: 50,
+                borderColor: colors.primary,
+                borderWidth: 1,
+                borderRadius: 10,
+                paddingHorizontal: 16,
+                marginTop: 10,
+              }}
+              placeholder="********"
+              secureTextEntry={true}
+            />
+            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'flex-end', marginTop: 10 }}>
+              <Text style={{ color: colors.primary }}>Forgot Password</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{
+              backgroundColor: colors.primary,
+              width: '100%',
+              paddingVertical: 15,
+              borderRadius: 10,
+              marginTop: 20,
+              alignItems: 'center',
+            }} onPress={() => navigation.navigate('Home')}>
+              <Text style={{ color: '#fff', fontSize: 16, fontWeight: 'bold' }}>Login</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 20 }} onPress={() => navigation.navigate('SignUp')}>
+              <Text style={{ color: colors.primary }}>Don't have an account? </Text>
+              <Text style={{ color: colors.primary, fontWeight: 'bold' }}>Sign Up</Text>
+            </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -51,8 +96,8 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   formContainer: {
     flex: 0.9,
-    justifyContent: 'start',
-    alignItems: 'start',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     padding: 24,
     backgroundColor: '#f4f4f4',
     borderRadius: 16,
