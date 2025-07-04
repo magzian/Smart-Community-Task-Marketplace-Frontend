@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import colors from 'theme/colors'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomModal from '../components/Modal'
+
 
 export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false)
@@ -30,7 +31,59 @@ export default function HomeScreen() {
           // Optional elevation for Android
           elevation: 2,
         }}
-      ></View>
+      >
+        <View style={{ flexDirection: 'row', alignItems:'flex-start', marginBottom: 20 }}>
+          <Image
+            source={require('../assets/boy.png')}
+            style={{ width: 100, height: 100, borderRadius: 50, marginBottom: 20 }}
+          />
+          <View style={{ marginLeft: 20, justifyContent: 'center', borderRadius: 10 }}>
+            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>John Doe</Text>
+            <Text style={{ fontSize: 16, color: '#555', marginTop: 4 }}>Software Developer</Text>
+          </View>
+        </View>
+        <View style={{ marginTop:-25, width: '80%' }}>
+          <View
+            style={{
+              backgroundColor: '#f4f4f4',
+              borderRadius: 16,
+              padding: 16,
+              marginBottom: 16,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 1 },
+              shadowOpacity: 0.08,
+              shadowRadius: 6,
+              elevation: 2,
+            }}
+          >
+            <Text style={{ marginBottom: 8, fontWeight: 'bold', fontSize: 16 }}>Overall Rating by Employee</Text>
+            <Image
+              source={require('../assets/stars.png')}
+              style={{ width: 130, height: 20 }}
+            />
+          </View>
+          <View
+            style={{
+              backgroundColor: '#f4f4f4',
+              borderRadius: 16,
+              padding: 16,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 1 },
+              shadowOpacity: 0.08,
+              shadowRadius: 6,
+              elevation: 2,
+            }}
+          >
+            <Text style={{ marginBottom: 8, fontWeight: 'bold', fontSize: 16 }}>Overall Rating by Employer</Text>
+            <Image
+              source={require('../assets/stars.png')}
+              style={{ width: 130, height: 20 }}
+            />
+          </View>
+        </View>
+      </View>
+
+
 
       <TouchableOpacity
         style={{
