@@ -3,15 +3,30 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import colors from 'theme/colors'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import CustomModal from '../components/Modal'
+import { ArrowLeftIcon } from 'react-native-heroicons/solid'
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
+
+type RootStackParamList = {
+
+}
 
 export default function HomeScreen() {
   const [modalVisible, setModalVisible] = useState(false)
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
 
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+
   return (
-    <SafeAreaView style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
+      
+
+      <SafeAreaView style={{ flex: 0.8, justifyContent: 'center', alignItems: 'center' }}>
+            <View style={{ position:"absolute", top:30, left:1 }}>
+          <TouchableOpacity onPress={() => navigation.goBack()} >
+            <ArrowLeftIcon size={30} color={colors.primary} style={{ margin: 16 }} />
+          </TouchableOpacity>
+            </View>
       <Text style={{ marginBottom: 20 }}>My profile</Text>
       <View
         style={{
@@ -119,5 +134,7 @@ export default function HomeScreen() {
         setPrice={setPrice}
       />
     </SafeAreaView>
+    
+
   )
 }
